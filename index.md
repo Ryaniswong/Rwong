@@ -1,3 +1,3 @@
 My name is Ryan Wong 
 
-![This is a cute dog!](./images/dog.png)
+![This is a cute dog!](./dog.png)
