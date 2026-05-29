@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Wong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f5f4f1;
+      --text-primary: #1a1a18;
+      --text-secondary: #5c5b57;
+      --text-tertiary: #9c9b96;
+      --border-tertiary: rgba(0,0,0,0.1);
+      --border-secondary: rgba(0,0,0,0.18);
+      --border-primary: rgba(0,0,0,0.28);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --warn-bg: #e1f5ee;
+      --warn-text: #0f6e56;
+      --warn-border: rgba(15,110,86,0.25);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1e1e1c;
+        --bg-secondary: #2a2a27;
+        --text-primary: #f0efe8;
+        --text-secondary: #b0afa8;
+        --text-tertiary: #706f6a;
+        --border-tertiary: rgba(255,255,255,0.08);
+        --border-secondary: rgba(255,255,255,0.14);
+        --border-primary: rgba(255,255,255,0.22);
+        --warn-bg: #04342c;
+        --warn-text: #9fe1cb;
+        --warn-border: rgba(159,225,203,0.25);
+      }
+    }
+
+    body {
+      font-family: 'Syne', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .portfolio {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* ---- Name Block ---- */
+    .name-block { margin-bottom: 2.5rem; }
+    .name-block h1 {
+      font-size: clamp(36px, 8vw, 52px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .name-block .sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+    .name-block .links {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .name-block .links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 0.5px solid var(--border-secondary);
+      padding: 5px 12px;
+      border-radius: 20px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .name-block .links a:hover {
+      color: var(--text-primary);
+      border-color: var(--border-primary);
+    }
+
+    /* ---- Sections ---- */
+    .section { margin-bottom: 2rem; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border-tertiary);
+    }
+
+    /* ---- Education ---- */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--border-tertiary);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-school { font-weight: 600; font-size: 15px; color: var(--text-primary); }
+    .edu-degree { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+    .edu-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      padding-top: 3px;
+    }
+
+    /* ---- Experience ---- */
+    .exp-item {
+      padding: 12px 0;
+      border-bottom: 0.5px solid var(--border-tertiary);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .exp-company { font-weight: 600; font-size: 15px; color: var(--text-primary); }
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+    }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* ---- Projects ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .project-card {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border-tertiary);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--border-primary); }
+    .project-title { font-weight: 600; font-size: 14px; color: var(--text-primary); margin-bottom: 4px; }
+    .project-stack {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+    .project-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+    .project-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border: 0.5px solid var(--warn-border);
+    }
+
+    /* ---- Skills ---- */
+    .skills-grid { display: flex; flex-direction: column; gap: 10px; }
+    .skill-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .skill-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      min-width: 100px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-size: 12px;
+      color: var(--text-primary);
+      background: var(--bg);
+      border: 0.5px solid var(--border-secondary);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ---- Animations ---- */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <main class="portfolio">
+
+    <div class="name-block fade-in">
+      <h1>Ryan Wong</h1>
+      <div class="sub">Computer Engineering &middot; UC San Diego</div>
+      <div class="links">
+        <a href="mailto:ryaniswong6@gmail.com"><i class="ti ti-mail"></i> ryaniswong6@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ryan-is-wong/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin"></i> linkedin</a>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-label">Education</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-school">UC San Diego</div>
+          <div class="edu-degree">B.S. Computer Engineering</div>
+        </div>
+        <div class="edu-date">Sep 2025 &ndash; Present</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-school">Yuba College</div>
+          <div class="edu-degree">A.A. Arts and Humanities</div>
+        </div>
+        <div class="edu-date">Dec 2025</div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-label">Experience</div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Warner Street Grocery</div>
+          <div class="exp-date">Jun &ndash; Jul 2023</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Optimized stocking and inventory across refrigerators and shelves, improving workflow efficiency</li>
+          <li>Awarded a performance bonus and letter of recommendation for exceptional reliability</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Bell Memorial Union Administration</div>
+          <div class="exp-date">Chico, CA</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Maintained large-scale campus facilities with emphasis on safety and efficiency</li>
+          <li>Recognized for initiative and ability to work independently without supervision</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-label">Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">TFT Itemizer</div>
+          <div class="project-stack">Python &middot; JSON</div>
+          <div class="project-desc">Calculates optimal item combinations for Teamfight Tactics using nested data structures and structured game datasets.</div>
+          <span class="project-badge">May 2026</span>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Night Planner To-Do</div>
+          <div class="project-stack">Python &middot; JSON</div>
+          <div class="project-desc">CLI task manager with full CRUD, persistent JSON storage, and menu-driven interface for daily planning.</div>
+          <span class="project-badge">May 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-label">Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-cat">Languages</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Concepts</span>
+          <div class="skill-tags">
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Algorithms</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Tools</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">CLI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const els = document.querySelectorAll('.fade-in');
+    let delay = 0;
+    els.forEach(el => {
+      el.style.transitionDelay = delay + 'ms';
+      delay += 100;
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    els.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
