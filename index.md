@@ -1,6 +1,6 @@
 **Hi, my name is Ryan Wong**
 
-![This is a cute dog](./dog (1).png)
+![This is a cute dog](./dog(1).png)
 
 # Ryan Wong
 Computer Engineering · UC San Diego
