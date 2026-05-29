@@ -2,11 +2,6 @@
 
 ![This is a cute dog](./dog.png)
 
-
----
-layout: default
----
-
 # Ryan Wong
 Computer Engineering · UC San Diego
 
@@ -45,9 +40,8 @@ CLI task manager with full CRUD, persistent JSON storage, and menu-driven interf
 ---
 
 ## Skills
-
-| | |
-|---|---|
 | **Languages** | Java, Python, C |
 | **Concepts** | OOP, Data Structures, Algorithms |
 | **Tools** | Git / GitHub, VS Code, CLI |
+
+---
