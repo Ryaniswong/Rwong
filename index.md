@@ -1,6 +1,6 @@
 **Hi, my name is Ryan Wong**
 
-![This is a cute dog](./dog2.png)
+![This is a cute dog](./dog.png)
 
 # Ryan Wong
 Computer Engineering · UC San Diego
@@ -26,16 +26,6 @@ Computer Engineering · UC San Diego
 **Bell Memorial Union Administration** *(Chico, CA)*
 - Maintained large-scale campus facilities with emphasis on safety and efficiency
 - Recognized for initiative and ability to work independently without supervision
-
----
-
-## Projects
-
-**TFT Itemizer** · Python, JSON *(May 2026)*
-Calculates optimal item combinations for Teamfight Tactics using nested data structures and structured game datasets.
-
-**Night Planner To-Do** · Python, JSON *(May 2026)*
-CLI task manager with full CRUD, persistent JSON storage, and menu-driven interface for daily planning.
 
 ---
 
